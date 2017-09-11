@@ -3,8 +3,27 @@
   <head>
     <meta charset="UTF-8">
     <title>My File</title>
+    <script type="text/javascript">
+      
+      function myFunction() {
+        var url = window.location.href;
+        console.log(url.substr(44, url.indexOf("&token_type") - 44));
+      }
+        
+      function login() {
+        var CLIENT_ID = 'a2ff816c53a341db849e76d58e57cd92';
+        var REDIRECT_URI = 'http://localhost:8888/callback';
+        var url = 'https://accounts.spotify.com/authorize?client_id=' + CLIENT_ID + '&redirect_uri=' + encodeURIComponent(REDIRECT_URI) + '&scope=' + encodeURIComponent(['user-read-email'].join(' ')) + '&response_type=token';
+
+//        window.open("https://www.w3schools.com");
+//        window.open(url);
+        window.location.href = url;
+      }
+    </script>
   </head>
   <body>
     <h1>Now using HTML</h1>
+    <p><a href="#" onClick="login();">Login</a></p>
+    <p><a href="#" onClick="myFunction();">Print</a></p>
   </body>
 </html>
